@@ -52,16 +52,23 @@ with open(file_to_load) as election_data:
             
  # Open a text file to save the output
 with open(file_to_output, "w") as txt_file:
-     # Print the total vote count (to terminal) and to text file
+     
+    # define Header string and Dash string"
     header_string = "Election Results \n"
     dash_string = "-------------------------\n"
+    
+    # Print Dash and header to terminal and text file
     print(header_string)
     txt_file.write(header_string)
     print(dash_string)
     txt_file.write(dash_string)
+   
+   # Print total Votes to Terminal and text file
     total_votes_str = f"Total Votes: {total_votes}\n"
     print(total_votes_str)
     txt_file.write(total_votes_str)
+    
+    # Print Dash string to Terminal and Text File
     print(dash_string)
     txt_file.write(dash_string)
    
@@ -74,12 +81,17 @@ with open(file_to_output, "w") as txt_file:
         if vote_percent > winning_percent:
             winning_percent = vote_percent
             winner = name
+
+        #Calculate Results and write it into F string
         results_str = f"{name}: {round(vote_percent *100, 3)}% ({votes})\n"
+
+        #Print Results into Terminal and Text FIle
         print(results_str)
         txt_file.write(results_str)
 
-    #Print winner to text file and terminal 
+    # Create String to name winner
     winner_string = f"Winner: {winner}\n"
+    # Print Dash Strings and Winner String to terminal and text file
     print(dash_string)
     txt_file.write(dash_string)
     print(winner_string)
